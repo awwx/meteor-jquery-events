@@ -8,13 +8,15 @@ Map of type to array of registered event handlers for that type.
 
     handlers = {}
 
+
 Construct a dispatcher function, which when called with an event calls
-all the registers handlers for the type.
+all the registered handlers for the type.
 
     dispatch = (type) ->
       (event) ->
         _.each handlers[type], (handler) -> handler(event)
         undefined
+
 
 Add a dispatcher for this type, if we don't have one already.
 
@@ -54,8 +56,9 @@ this type if we don't have one already.
         handlers[type].push handler
       undefined
 
-Remove this registered handler for the type, and remove our dispatcher
-if we no longer have any listening handlers.
+
+Remove this registered handler for the type, and also remove our
+dispatcher if we no longer have any listening handlers.
 
     removeHandler = (type, handler) ->
       handlers[type] = _.without(handlers[type], [handler])
@@ -63,6 +66,7 @@ if we no longer have any listening handlers.
         removeDispatcher type
         delete handlers[type]
       undefined
+
 
 Replacement implementation for packages/universal-events/listener.js
 `UniversalEventListener`
