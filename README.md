@@ -26,4 +26,4 @@ And add `jquery-events` to your `.meteor/packages` file.
 
 Fun implementation using
 [Literate CoffeeScript](http://coffeescript.org/#literate)
-here: [source](blob/master/jquery-events.md)
+here: [source](./blob/master/jquery-events.md)
